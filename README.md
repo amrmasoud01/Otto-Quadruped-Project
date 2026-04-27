@@ -57,21 +57,21 @@ Powering 8 servos from the Arduino's 5V pin is strictly prohibited as it causes 
 Download and install the **Bluetooth Arduino Control** app from the Play Store:
 * [Download Link](https://play.google.com/store/apps/details?id=com.giristudio.hc05.bluetooth.arduino.control)
 
-![App Interface Placeholder](<img src="./Media/app-interface.webp" width="300">)
+![App Interface Placeholder]<img src="./Media/app-interface.webp" width="300">
 
 ### 3. Connection & Mapping
 1. Open the app and click the **Connect** icon (top-left).
 2. Select **HC-05** from the paired devices list.
-   ![App Interface Placeholder](<img src="./Media/connection.webp" width="300">)
+   ![App Interface Placeholder]<img src="./Media/connection.webp" width="300">
 3. Choose the **GamePad** mode.
-   ![App Interface Placeholder](<img src="./Media/gamepad.webp" width="300">)
+   ![App Interface Placeholder]<img src="./Media/gamepad.webp" width="300">
 4. Go to **Settings** (top-right icon) and map the buttons using **small letters** as follows:
    * **UP:** `f`
    * **DOWN:** `b`
    * **LEFT:** `l`
    * **RIGHT:** `r`
    * Set the **Release** option for all four directions to: `s`
-   ![App Interface Placeholder](<img src="./Media/buttons-configuration.jpeg" width="300">)
+   ![App Interface Placeholder]<img src="./Media/buttons-configuration.jpeg" width="300">
 
 ## 👥 Team Members
 1. **Mohamed Ahmed El-Sayed El-Haddad**
