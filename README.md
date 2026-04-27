@@ -58,6 +58,9 @@ Powering 8 servos from the Arduino's 5V pin is strictly prohibited as it causes 
 10. **Mohamed Khairy**
 11. **Talaat Mostafa**
 12. **Mohamed Abdel-Baqi**
+13. **Amira Gamal**
+14. **Hanan Abdelrahman**
+15. **Hanan Mujahed**
 
 ## 🎓 Under the Supervision of
 * **Prof. Dr. Tamer Medhat** (Dean of the Faculty)
