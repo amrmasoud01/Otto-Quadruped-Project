@@ -1,22 +1,21 @@
-# 🕷️ Quadruped Obstacle-Avoiding Robot
+# 🕷️ Quadruped Bluetooth-Controlled Robot
 
 ## 📌 Overview
-An Arduino-based 4-legged (quadruped) robot designed for smooth walking and autonomous obstacle avoidance. The project utilizes 8 servo motors to control the hips and knees of the robot, paired with an HC-SR04 ultrasonic sensor to detect walls or objects in its path and alter its course automatically.
+An Arduino-based 4-legged (quadruped) robot designed for smooth walking and remote operation via Bluetooth. This project features 8 servo motors controlling the hips and knees, allowing the robot to execute complex movements and navigation commands sent from a mobile application.
 
 ## 🚀 Features
-* **Smooth Kinematics:** Custom interpolation functions (`smoothMove`, `smoothMovePair`, `smoothMoveQuad`) to ensure the servos move fluidly without sudden, jerky motions.
-* **Autonomous Navigation:** The robot continuously scans the environment and moves forward as long as the path is clear.
-* **Obstacle Evasion:** If an obstacle is detected within 20 cm, the robot executes a predefined sequence of right turns to find a clear path.
-* **Modular Gaits:** Pre-calibrated angles and functions for standing, walking forward, turning left, and turning right.
+* **Bluetooth Control:** Seamless remote operation using HC-05/HC-06 modules and a customized mobile interface.
+* **Smooth Kinematics:** Advanced interpolation functions (`smoothMove`, `smoothMovePair`, `smoothMoveQuad`) ensure fluid, organic motions.
+* **Modular Gaits:** Pre-calibrated movement patterns for walking forward, backward, turning, and standing.
+* **Isolated Power System:** Dedicated power routing to handle high-current servo demands without affecting logic stability.
 
 ## 🛠️ Hardware Components
 * 1x Arduino (Nano / Uno)
-* 8x Servo Motors (SG90 or MG996R)
-* 1x HC-SR04 Ultrasonic Sensor
-* 1x Additional Servo for the Ultrasonic Sensor (Head)
+* 8x Servo Motors (SG90)
+* 1x Bluetooth Module (HC-05 or HC-06)
 * 1x Sensor Shield / Expansion Board
-* Power Supply Module (e.g., XL4015 Buck Converter)
-* 18650 Li-ion Batteries
+* 1x XL4015 Buck Converter (Current/Voltage Regulated)
+* 18650 Li-ion Batteries (High Discharge)
 
 ## 🔌 Pin Configuration
 
@@ -30,23 +29,39 @@ An Arduino-based 4-legged (quadruped) robot designed for smooth walking and auto
 | Leg 3 Knee | D4 |
 | Leg 4 Hip | D10 |
 | Leg 4 Knee | D6 |
-| Ultrasonic Sensor TRIG | D3 |
-| Ultrasonic Sensor ECHO | D2 |
-| Ultrasonic Head Servo | D12 |
+| Bluetooth RX | D1 (TX) |
+| Bluetooth TX | D0 (RX) |
 
 ## ⚠️ Crucial Power Supply Warning
-Running 8 servos simultaneously draws a significant amount of current. Powering the servos directly from the Arduino's 5V pin will cause voltage drops (Brownouts), leading to erratic servo movements and false readings (e.g., reading 999 or 0 cm) from the Ultrasonic sensor.
+Powering 8 servos from the Arduino's 5V pin is strictly prohibited as it causes system brownouts and erratic behavior.
 
-**Recommended Power Routing:**
-* Use a robust Buck Converter (like XL4015) set to exactly 5V to power the **Servos only**.
-* Power the **Arduino and Ultrasonic Sensor** separately (e.g., connecting the battery directly to the `VIN` pin to use the Arduino's internal linear regulator for clean power).
-* Always ensure that the Ground (`GND`) of the Buck Converter and the Arduino are connected together (Common Ground).
+**Recommended Setup:**
+* **Servos:** Powered via XL4015 Buck Converter set to **5V**.
+* **Arduino & Bluetooth:** Powered via the **VIN** pin (7.4V - 9V) to utilize the internal linear regulator for clean logic power.
+* **Common Ground:** Ensure the `GND` of the battery, Buck Converter, and Arduino are all interconnected.
+
+## 👥 Team Members
+1. **Mohamed Ahmed El-Sayed El-Haddad**
+2. **Ahmed Abdel-Aty Ibrahim**
+3. **Ahmed Gomaa**
+4. **Ibrahim El-Tamamy**
+5. **Mohamed Mansour**
+6. **Mohamed Ekramy**
+7. **Amr Wael**
+8. **Mahmoud Badr**
+9. **Khaled Walid**
+10. **Mohamed Khairy**
+11. **Talaat Mostafa**
+12. **Mohamed Abdel-Baqi**
+
+## 🎓 Under the Supervision of
+* **Prof. Dr. Tamer Medhat** (Dean of the Faculty)
+* **Dr. Marwa El-Seddik**
+* **Eng. Abdel-Raouf Hawash**
 
 ## 💻 Installation & Usage
-1. Assemble the 3D-printed or acrylic quadruped chassis.
-2. Connect the servos and sensors according to the Pin Configuration table.
-3. Ensure your power distribution isolates the servo noise from the Arduino.
-4. Open the `quadruped_robot.ino` file in the Arduino IDE.
-5. The project uses the standard `<Servo.h>` library, so no external downloads are required.
-6. Upload the code to your Arduino board.
-7. Disconnect the USB, power on the battery switch, and watch it walk!
+1. Assemble the quadruped chassis.
+2. Connect servos and the Bluetooth module as per the Pin Configuration table.
+3. Upload the control code to the Arduino (ensure Bluetooth RX/TX are disconnected during upload).
+4. Connect your mobile app to the HC-05/HC-06 module.
+5. Deploy and control!
