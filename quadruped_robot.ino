@@ -43,6 +43,12 @@ const int L1_KNEE_UP = 60;
 const int L2_KNEE_UP = 60;
 const int L3_KNEE_UP = 130;
 const int L4_KNEE_UP = 130;
+
+bool forward = false;
+bool right = false;
+bool left = false;
+bool back = false;
+
 // ==================== Ultrasonic ====================
 #define FRONT_TRIG  3
 #define FRONT_ECHO  2
@@ -162,6 +168,36 @@ bool walkForwardCycle() {
 
   return true;
 }
+bool walkBackCycle() {
+
+  // Fix 3: push grounded pair (2 & 4) back first before lifting pair 1 & 3
+  smoothMovePair(hip2, L2_HIP_BACK, hip4, L4_HIP_NEUTRAL);
+
+  // Pair 1: lift 1 & 3 simultaneously
+  smoothMovePair(knee1, L1_KNEE_UP, knee3, L3_KNEE_UP);
+
+  // Swing hips — keeping your original targets
+  smoothMove(hip1, L1_HIP_BACK);
+  smoothMove(hip3, L3_HIP_NEUTRAL);
+  smoothMoveQuad(hip2, L2_HIP_NEUTRAL, hip4, L4_HIP_FORWARD, knee1, L1_KNEE_DOWN, knee3, L3_KNEE_DOWN);
+
+  delay(60);
+
+  // Fix 3: push grounded pair (1 & 3) back first before lifting pair 2 & 4
+  smoothMovePair(hip1, L1_HIP_NEUTRAL, hip3, L3_HIP_FORWARD);
+
+  // Pair 2: lift 2 & 4 simultaneously
+  smoothMovePair(knee2, L2_KNEE_UP, knee4, L4_KNEE_UP);
+
+  // Swing hips — keeping your original targets
+  smoothMove(hip2, L2_HIP_BACK);
+  smoothMove(hip4, L4_HIP_NEUTRAL);
+  smoothMoveQuad(hip1, L1_HIP_BACK, hip3, L3_HIP_NEUTRAL, knee2, L2_KNEE_DOWN, knee4, L4_KNEE_DOWN);
+
+  delay(60);
+
+  return true;
+}
 // ==================== left ====================
 bool turnLeft() {
 
@@ -244,11 +280,33 @@ void setup() {
 
 // ==================== LOOP ====================
 void loop() {
-  if(getDistance()>OBSTACLE_DIST){
-    walkForwardCycle();
-  }else{
-    turnRight();
-    turnRight();
-    turnRight();
+  //walkForwardCycle();
+  if (Serial.available()) {
+    char c = Serial.read();
+
+    if (c == 'f') {
+      forward=true;
+    }else if (c == 'r') {
+      right = true;
+    }else if (c=='l'){
+      left = true;
+    }else if(c=='b'){
+      back=true;
+    }else if(c=='s'){
+      forward=false;
+      right=false;
+      left=false;
+      back=false;
+      stand();
+    }
+    if (forward){
+      walkForwardCycle();
+    }else if (right){
+      turnRight();
+    }else if (left){
+      turnLeft();
+    }else if (back){
+      walkBackCycle();
+    }
   }
 }
