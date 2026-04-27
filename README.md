@@ -3,6 +3,11 @@
 ## 📌 Overview
 An Arduino-based 4-legged (quadruped) robot designed for smooth walking and remote operation via Bluetooth. This project features 8 servo motors controlling the hips and knees, allowing the robot to execute complex movements and navigation commands sent from a mobile application.
 
+## 🤝 Acknowledgments & Continuity
+This project is a continuation of the work developed by our colleagues. We have built upon their foundation to enhance the robot's capabilities and transition to Bluetooth-based control.
+* **Original Project Repository:** [Otto-Quad-Robot](https://github.com/A-m-ira/Otto-Quad-Robot-)
+
+
 ## 🚀 Features
 * **Bluetooth Control:** Seamless remote operation using HC-05/HC-06 modules and a customized mobile interface.
 * **Smooth Kinematics:** Advanced interpolation functions (`smoothMove`, `smoothMovePair`, `smoothMoveQuad`) ensure fluid, organic motions.
