@@ -1,4 +1,4 @@
-<img width="296" height="592" alt="image" src="https://github.com/user-attachments/assets/ebc63878-aec7-48fa-a586-25b1579914db" /># 🕷️ Quadruped Bluetooth-Controlled Robot
+# 🕷️ Quadruped Bluetooth-Controlled Robot
 
 ## 📌 Overview
 An Arduino-based 4-legged (quadruped) robot designed for smooth walking and remote operation via Bluetooth. This project features 8 servo motors controlling the hips and knees, allowing the robot to execute complex movements and navigation commands sent from a mobile application.
