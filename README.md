@@ -15,9 +15,9 @@ This project is a continuation of the work developed by our colleagues. We have 
 * **Isolated Power System:** Dedicated power routing to handle high-current servo demands without affecting logic stability.
 
 ## 🛠️ Hardware Components
-* 1x Arduino (Nano / Uno)
+* 1x Arduino (Nano)
 * 8x Servo Motors (SG90)
-* 1x Bluetooth Module (HC-05 or HC-06)
+* 1x Bluetooth Module (HC-05)
 * 1x Sensor Shield / Expansion Board
 * 1x XL4015 Buck Converter (Current/Voltage Regulated)
 * 18650 Li-ion Batteries (High Discharge)
