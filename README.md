@@ -1,4 +1,4 @@
-# 🕷️ Quadruped Bluetooth-Controlled Robot
+<img width="296" height="592" alt="image" src="https://github.com/user-attachments/assets/ebc63878-aec7-48fa-a586-25b1579914db" /># 🕷️ Quadruped Bluetooth-Controlled Robot
 
 ## 📌 Overview
 An Arduino-based 4-legged (quadruped) robot designed for smooth walking and remote operation via Bluetooth. This project features 8 servo motors controlling the hips and knees, allowing the robot to execute complex movements and navigation commands sent from a mobile application.
@@ -44,6 +44,34 @@ Powering 8 servos from the Arduino's 5V pin is strictly prohibited as it causes 
 * **Servos:** Powered via XL4015 Buck Converter set to **5V**.
 * **Arduino & Bluetooth:** Powered via the **VIN** pin (7.4V - 9V) to utilize the internal linear regulator for clean logic power.
 * **Common Ground:** Ensure the `GND` of the battery, Buck Converter, and Arduino are all interconnected.
+
+## 📱 Mobile App Setup & Configuration
+
+### 1. Pairing
+* Enable Bluetooth on your phone.
+* Pair with the module named **HC-05**.
+* Use the pairing PIN: `1234`.
+* **Note:** For a stable connection, keep the phone within **50 cm** of the robot.
+
+### 2. App Installation
+Download and install the **Bluetooth Arduino Control** app from the Play Store:
+* [Download Link](https://play.google.com/store/apps/details?id=com.giristudio.hc05.bluetooth.arduino.control)
+
+![App Interface Placeholder](<img src="Media/app interface.webp" width="300">)
+
+### 3. Connection & Mapping
+1. Open the app and click the **Connect** icon (top-left).
+2. Select **HC-05** from the paired devices list.
+   ![App Interface Placeholder](<img src="Media/connection.webp" width="300">)
+3. Choose the **GamePad** mode.
+   ![App Interface Placeholder](<img src="Media/gamepad.webp" width="300">)
+4. Go to **Settings** (top-right icon) and map the buttons using **small letters** as follows:
+   * **UP:** `f`
+   * **DOWN:** `b`
+   * **LEFT:** `l`
+   * **RIGHT:** `r`
+   * Set the **Release** option for all four directions to: `s`
+   ![App Interface Placeholder](<img src="Media/buttons configuration.jpeg" width="300">)
 
 ## 👥 Team Members
 1. **Mohamed Ahmed El-Sayed El-Haddad**
